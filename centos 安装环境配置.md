@@ -21,7 +21,7 @@ sudo yum install gcc-c++ make
 ```
 
 安装 MongoDB，首先创建源，创建 `mongodb.repo` 文件, 
-<a target="_blank" href="https://docs.mongodb.com/manual/installation/">官方安装方法</a>
+<a target="_blank" href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/">官方安装方法</a>
 
 ```bash
 # 在/etc/yum.repos.d/目录下创建文件mongodb.repo，它包含MongoDB仓库的配置信息，内容如下：
@@ -39,25 +39,6 @@ yum 安装 MongoDB
 sudo yum install mongodb-org
 ```
 
-为 YApi 初始数据库
+启动 mongodb
 
-```js
-use yapi // 创建yapi数据库 
-db.wong.insert({"name":"kenny wong"}) // 插入一条数据，将在数据库列表中展示
-show dbs // 查看所有数据库
-db.addUser('yapi','yapi321') // 老的，数据库加用户的命令(支持 mongodb2.x)
-
-db.createUser(
-  {
-    user: "yapi",
-    pwd: "yapi321",
-    roles:
-    [
-      {
-        role: "userAdminAnyDatabase",
-        db: "yapi"
-      }
-    ]
-  }
-)
-```
+sudo service mongod start
