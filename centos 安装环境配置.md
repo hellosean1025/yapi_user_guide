@@ -41,4 +41,12 @@ sudo yum install mongodb-org
 
 启动 mongodb
 
+```
 sudo service mongod start
+```
+
+yum 安装 git
+
+```
+sudo yum install git
+```
